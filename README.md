@@ -8,3 +8,5 @@ kiwayMVC
 DEMO中有对应的实例，business包中包含LoginForm以及LoginAction，以及view中的三个演示jsp；
 
 放到tomcat中即能进行测试。
+
+详细过程请移步：http://www.luojinwei.cn/archives/46
