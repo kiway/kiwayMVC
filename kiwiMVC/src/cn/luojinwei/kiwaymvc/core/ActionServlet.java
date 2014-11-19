@@ -20,8 +20,9 @@ public class ActionServlet extends HttpServlet{
 			throws ServletException, IOException {
 		 //请求url
 		String path = this.getPath(request.getServletPath());
+		System.out.println("servlet url:"+path);
 		 // 获得配置信息的XxmlBean
-		Map<String,XmlBean> map = (Map<String,XmlBean>)request.getAttribute("struts");
+		Map<String,XmlBean> map = (Map<String,XmlBean>)request.getServletContext().getAttribute("struts");
 		XmlBean xml = map.get(path);
 		String actionClass = xml.getActionClass();
 		String formClass = xml.getFormClass();
@@ -36,6 +37,7 @@ public class ActionServlet extends HttpServlet{
 			action = (Action) clazz.newInstance();
 			// 调用该action类的execute方法,获得最终跳转的url
 			url = action.execute(request, response, form, xml.getActionForward());
+			System.out.println("outputURL:"+url);
 		  
 	 	} catch (Exception e) {
 	 		e.printStackTrace();
@@ -54,7 +56,8 @@ public class ActionServlet extends HttpServlet{
 	
 	//获得真实请求， 如 hello.do -> hello
 	private String getPath(String servletPath) {
-		return servletPath.split(".")[0];
+		System.out.println(servletPath);
+		return servletPath.split("\\.")[0];
 	}
 
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <struts-config>
 	 <form-beans>
-	 	<form-bean name="loginForm" type="cn.luojinwei.form.LoginForm"></form-bean>
+	 	<form-bean name="loginForm" type="business.LoginForm"></form-bean>
 	 </form-beans>
 	 <action-mappings>
-	 	<action name="loginForm" type="cn.luojinwei.action.LoginAction" path="/login">
+	 	<action name="loginForm" type="business.LoginAction" path="/login">
 	 		<forward name="success" path="/view/success.jsp"></forward>
-	 		<forward name="failure" path="/view/failure.jsp"></forward>
+	 		<forward name="failuer" path="/view/failure.jsp"></forward>
 	 	</action>
 	 </action-mappings>
 </struts-config>
